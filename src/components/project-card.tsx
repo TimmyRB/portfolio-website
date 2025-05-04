@@ -71,15 +71,13 @@ export default function ProjectCard({
               : "translate3d(0px, 0px, 0) scale3d(1, 1, 1)",
             transition: "transform 0.1s ease-out",
           }}
-          className="relative"
+          className="relative w-full h-full"
         >
           <Image
             src={`https:${project.fields.image.fields.file.url}`}
             alt={project.fields.title}
-            width={1024}
-            height={1024}
-            placeholder="blur"
-            blurDataURL={`https:${project.fields.image.fields.file.url}`}
+            width={512}
+            height={512}
             className="w-full h-full object-cover scale-100 hover:scale-105 transition-all duration-100"
           />
         </motion.div>

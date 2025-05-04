@@ -27,8 +27,8 @@ export default function ProjectIngredients({ project }: { project: Project }) {
 
   return (
     <div className="flex flex-col gap-2 w-full bg-zinc-100 dark:bg-zinc-900 py-2 rounded-lg">
-      <div className="flex flex-row justify-between items-center gap-2 px-4">
-        <div className="flex flex-row items-end gap-x-2">
+      <div className="flex flex-row justify-between items-center gap-2 px-4 w-full">
+        <div className="flex flex-row items-center sm:items-end justify-between sm:justify-start gap-x-2 w-full sm:w-auto">
           <h1 className="text-xl font-bold text-nowrap">
             {project.fields.title}
           </h1>
@@ -36,7 +36,7 @@ export default function ProjectIngredients({ project }: { project: Project }) {
             {project.fields.year}
           </h2>
         </div>
-        <div className="flex flex-row flex-wrap items-center justify-end gap-x-2">
+        <div className="hidden sm:flex flex-row flex-wrap items-center justify-end gap-x-2">
           {hasLinks &&
             project.fields.links.map((link) => (
               <ProjectLink key={link} url={link} size={16} />

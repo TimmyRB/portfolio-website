@@ -56,7 +56,7 @@ export function Navbar() {
             alt="logo"
             width={48}
             height={48}
-            className="rounded-lg"
+            className="rounded-lg w-9 h-9 md:w-12 md:h-12"
           />
         </a>
 
