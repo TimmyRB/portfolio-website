@@ -30,9 +30,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="flex flex-col h-screen w-screen overflow-x-hidden overflow-y-auto">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <header>
-            <Navbar />
-          </header>
+          <Navbar />
           <main className="flex flex-col flex-1 p-4">{children}</main>
           <Footer />
         </ThemeProvider>

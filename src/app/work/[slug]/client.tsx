@@ -12,31 +12,33 @@ export default function WorkClient({ project }: { project: Project }) {
   const hasLinks = project.fields.links && project.fields.links.length > 0;
 
   const Bold = ({ children }: { children: React.ReactNode }) => (
-    <p className="font-bold inline">{children}</p>
+    <span className="font-bold inline">{children}</span>
   );
 
   const Italic = ({ children }: { children: React.ReactNode }) => (
-    <p className="italic inline">{children}</p>
+    <span className="italic inline">{children}</span>
   );
 
   const Underline = ({ children }: { children: React.ReactNode }) => (
-    <p className="underline inline">{children}</p>
+    <span className="underline inline">{children}</span>
   );
 
   const Strikethrough = ({ children }: { children: React.ReactNode }) => (
-    <p className="line-through inline">{children}</p>
+    <span className="line-through inline">{children}</span>
   );
 
   const Code = ({ children }: { children: React.ReactNode }) => (
-    <p className="bg-zinc-100 dark:bg-zinc-900 p-1 rounded-sm">{children}</p>
+    <span className="bg-zinc-100 dark:bg-zinc-900 p-1 rounded-sm">
+      {children}
+    </span>
   );
 
   const Subscript = ({ children }: { children: React.ReactNode }) => (
-    <p className="sub inline">{children}</p>
+    <span className="sub inline">{children}</span>
   );
 
   const Superscript = ({ children }: { children: React.ReactNode }) => (
-    <p className="sup inline">{children}</p>
+    <span className="sup inline">{children}</span>
   );
 
   const Heading1 = ({ children }: { children: React.ReactNode }) => (
@@ -64,7 +66,7 @@ export default function WorkClient({ project }: { project: Project }) {
   );
 
   const Paragraph = ({ children }: { children: React.ReactNode }) => (
-    <p className="text-base inline">{children}</p>
+    <span className="text-base inline">{children}</span>
   );
 
   const EmbeddedAsset = ({ node }: { node: any }) => (
@@ -229,6 +231,7 @@ export default function WorkClient({ project }: { project: Project }) {
         {hasLinks &&
           project.fields.links.map((link) => (
             <ProjectLink
+              key={link}
               url={link}
               size={16}
               textClassName="text-md"

@@ -39,7 +39,7 @@ export default function ProjectIngredients({ project }: { project: Project }) {
         <div className="flex flex-row flex-wrap items-center justify-end gap-x-2">
           {hasLinks &&
             project.fields.links.map((link) => (
-              <ProjectLink url={link} size={16} />
+              <ProjectLink key={link} url={link} size={16} />
             ))}
         </div>
       </div>

@@ -80,7 +80,7 @@ export default function ProjectCard({
             height={1024}
             placeholder="blur"
             blurDataURL={`https:${project.fields.image.fields.file.url}`}
-            className="w-full h-full object-cover hover:scale-105 transition-all duration-100"
+            className="w-full h-full object-cover scale-100 hover:scale-105 transition-all duration-100"
           />
         </motion.div>
         {/* Gradient overlay */}

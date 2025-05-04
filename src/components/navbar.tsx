@@ -48,7 +48,7 @@ export function Navbar() {
   }, [isOpen]);
 
   return (
-    <>
+    <header className="sticky top-0 z-50 bg-background">
       <div className="relative flex flex-row items-center justify-between w-full p-4">
         <a onClick={() => router.push("/")}>
           <Image
@@ -64,42 +64,46 @@ export function Navbar() {
         <NavigationMenu className="font-bold hidden md:block">
           <NavigationMenuList>
             <NavigationMenuItem>
-              <Link href="/" passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  Home
-                </NavigationMenuLink>
-              </Link>
+              <NavigationMenuLink
+                href="/"
+                className={navigationMenuTriggerStyle()}
+              >
+                Home
+              </NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link href="/work" passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  Work
-                </NavigationMenuLink>
-              </Link>
+              <NavigationMenuLink
+                href="/work"
+                className={navigationMenuTriggerStyle()}
+              >
+                Work
+              </NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link href="/about" passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  About
-                </NavigationMenuLink>
-              </Link>
+              <NavigationMenuLink
+                href="/about"
+                className={navigationMenuTriggerStyle()}
+              >
+                About
+              </NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link href="/contact" passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  Contact
-                </NavigationMenuLink>
-              </Link>
+              <NavigationMenuLink
+                href="/contact"
+                className={navigationMenuTriggerStyle()}
+              >
+                Contact
+              </NavigationMenuLink>
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
         <Button
           variant="ghost"
           size="icon"
-          onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+          onClick={() => setTheme(theme === "light" ? "dark" : "light")}
           className="hidden md:flex"
         >
-          {theme === "dark" ? <SunIcon /> : <MoonIcon />}
+          {theme === "light" ? <MoonIcon /> : <SunIcon />}
         </Button>
 
         {/* Mobile Menu Button */}
@@ -164,19 +168,19 @@ export function Navbar() {
             <Button
               variant="outline"
               size="sm"
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              onClick={() => setTheme(theme === "light" ? "dark" : "light")}
               className="w-full"
             >
-              {theme === "dark" ? (
-                <SunIcon className="mr-2 h-4 w-4" />
-              ) : (
+              {theme === "light" ? (
                 <MoonIcon className="mr-2 h-4 w-4" />
+              ) : (
+                <SunIcon className="mr-2 h-4 w-4" />
               )}
-              {theme === "dark" ? "Light Mode" : "Dark Mode"}
+              {theme === "light" ? "Dark Mode" : "Light Mode"}
             </Button>
           </div>
         </div>
       </div>
-    </>
+    </header>
   );
 }
