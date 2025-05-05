@@ -11,6 +11,16 @@ export const metadata: Metadata = {
   title: "Jacob Brasil",
   description: "Jacob Brasil's Portfolio",
   manifest: "/manifest.json",
+  metadataBase: new URL("https://jacobbrasil.com"),
+  openGraph: {
+    title: "Jacob Brasil",
+    description: "Jacob Brasil's Portfolio",
+    siteName: "Jacob Brasil",
+    url: "https://jacobbrasil.com",
+    type: "website",
+    locale: "en_US",
+    images: [{ url: "https://jacobbrasil.com/logo-bg.png" }],
+  },
   icons: [
     { rel: "apple-touch-icon", sizes: "57x57", url: "/apple-icon-57x57.png" },
     { rel: "apple-touch-icon", sizes: "60x60", url: "/apple-icon-60x60.png" },
