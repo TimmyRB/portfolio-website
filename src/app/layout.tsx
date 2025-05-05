@@ -9,9 +9,13 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
   title: "Jacob Brasil",
-  description: "Jacob Brasil's Portfolio",
+  description:
+    "Jacob Brasil's Portfolio Website featuring a collection of projects I've worked on",
   manifest: "/manifest.json",
   metadataBase: new URL("https://jacobbrasil.com"),
+  alternates: {
+    canonical: "https://jacobbrasil.com",
+  },
   openGraph: {
     title: "Jacob Brasil",
     description:

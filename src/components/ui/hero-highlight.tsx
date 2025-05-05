@@ -112,7 +112,7 @@ export const Highlight = ({
   className?: string;
 }) => {
   return (
-    <motion.span
+    <motion.h2
       initial={{
         backgroundSize: "0% 100%",
       }}
@@ -134,6 +134,6 @@ export const Highlight = ({
       )}
     >
       {children}
-    </motion.span>
+    </motion.h2>
   );
 };
