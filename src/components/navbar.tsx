@@ -67,6 +67,7 @@ export function Navbar() {
               <NavigationMenuLink
                 href="/"
                 className={navigationMenuTriggerStyle()}
+                aria-label="Home"
               >
                 Home
               </NavigationMenuLink>
@@ -75,6 +76,7 @@ export function Navbar() {
               <NavigationMenuLink
                 href="/work"
                 className={navigationMenuTriggerStyle()}
+                aria-label="Work"
               >
                 Work
               </NavigationMenuLink>
@@ -83,6 +85,7 @@ export function Navbar() {
               <NavigationMenuLink
                 href="/about"
                 className={navigationMenuTriggerStyle()}
+                aria-label="About"
               >
                 About
               </NavigationMenuLink>
@@ -91,6 +94,7 @@ export function Navbar() {
               <NavigationMenuLink
                 href="/contact"
                 className={navigationMenuTriggerStyle()}
+                aria-label="Contact"
               >
                 Contact
               </NavigationMenuLink>
@@ -102,6 +106,7 @@ export function Navbar() {
           size="icon"
           onClick={() => setTheme(theme === "light" ? "dark" : "light")}
           className="hidden md:flex"
+          aria-label="Toggle Theme"
         >
           {theme === "light" ? <MoonIcon /> : <SunIcon />}
         </Button>
@@ -112,6 +117,7 @@ export function Navbar() {
           size="icon"
           onClick={() => setIsOpen(!isOpen)}
           className="flex md:hidden z-50"
+          aria-label="Toggle Mobile Sidebar"
         >
           {isOpen ? <XIcon /> : <MenuIcon />}
         </Button>
@@ -138,6 +144,7 @@ export function Navbar() {
               href="/"
               className="p-3 hover:bg-accent rounded-md transition-colors"
               onClick={() => setIsOpen(false)}
+              aria-label="Home"
             >
               Home
             </Link>
@@ -145,6 +152,7 @@ export function Navbar() {
               href="/work"
               className="p-3 hover:bg-accent rounded-md transition-colors"
               onClick={() => setIsOpen(false)}
+              aria-label="Work"
             >
               Work
             </Link>
@@ -152,6 +160,7 @@ export function Navbar() {
               href="/about"
               className="p-3 hover:bg-accent rounded-md transition-colors"
               onClick={() => setIsOpen(false)}
+              aria-label="About"
             >
               About
             </Link>
@@ -159,6 +168,7 @@ export function Navbar() {
               href="/contact"
               className="p-3 hover:bg-accent rounded-md transition-colors"
               onClick={() => setIsOpen(false)}
+              aria-label="Contact"
             >
               Contact
             </Link>
@@ -170,6 +180,7 @@ export function Navbar() {
               size="sm"
               onClick={() => setTheme(theme === "light" ? "dark" : "light")}
               className="w-full"
+              aria-label="Toggle Theme"
             >
               {theme === "light" ? (
                 <MoonIcon className="mr-2 h-4 w-4" />
