@@ -15,6 +15,8 @@ import {
   SiMongodb,
   SiExpress,
   SiCockroachlabs,
+  SiAngular,
+  SiPostgresql,
 } from "@icons-pack/react-simple-icons";
 import {
   Tooltip,
@@ -83,6 +85,10 @@ function getTechnologyIcon(technology: string, size: number) {
       return <SiExpress size={size} />;
     case "cockroachdb":
       return <SiCockroachlabs size={size} />;
+    case "angular":
+      return <SiAngular size={size} />;
+    case "postgresql":
+      return <SiPostgresql size={size} />;
     default:
       return <WrenchIcon size={size} />;
   }

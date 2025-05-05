@@ -55,7 +55,7 @@ export default function ProjectCard({
   return (
     <CardWrapper
       {...animationProps}
-      className="w-full h-full max-h-[234px] rounded-lg overflow-hidden shadow-xl relative"
+      className="w-full h-[224px] rounded-lg overflow-hidden shadow-xl relative"
     >
       <Link href={`/work/${project.fields.slug}`}>
         <motion.div

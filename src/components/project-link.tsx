@@ -11,6 +11,7 @@ import {
   SiThunderstore,
   SiSteam,
   SiItchdotio,
+  SiDevpost,
 } from "@icons-pack/react-simple-icons";
 import { LinkPreview } from "@/components/ui/link-preview";
 import { Link2Icon, ExternalLinkIcon } from "lucide-react";
@@ -72,6 +73,8 @@ function LinkName(url: URL, showFullName: boolean) {
       return "itch.io";
     case "steamcommunity.com":
       return "Steam";
+    case "devpost.com":
+      return "Devpost";
     default:
       return url.host;
   }
@@ -99,6 +102,8 @@ function LinkIcon(url: URL, size: number) {
       return <SiItchdotio size={size} />;
     case "steamcommunity.com":
       return <SiSteam size={size} />;
+    case "devpost.com":
+      return <SiDevpost size={size} />;
     default:
       return <Link2Icon size={size} />;
   }

@@ -34,52 +34,65 @@ export default function WorkClient({
   );
   const [hasFiltered, setHasFiltered] = useState(false);
   const filtersRef = useRef<ProjectFiltersRef>(null);
+  const [search, setSearch] = useState("");
 
   function handlePlatformChange(value: string[]) {
     setSelectedPlatforms(value);
-    applyFilters(value, selectedLanguages, selectedTechnologies);
+    applyFilters(value, selectedLanguages, selectedTechnologies, search);
     setHasFiltered(true);
   }
 
   function handleLanguageChange(value: string[]) {
     setSelectedLanguages(value);
-    applyFilters(selectedPlatforms, value, selectedTechnologies);
+    applyFilters(selectedPlatforms, value, selectedTechnologies, search);
     setHasFiltered(true);
   }
 
   function handleTechnologyChange(value: string[]) {
     setSelectedTechnologies(value);
-    applyFilters(selectedPlatforms, selectedLanguages, value);
+    applyFilters(selectedPlatforms, selectedLanguages, value, search);
+    setHasFiltered(true);
+  }
+
+  function handleSearchChange(value: string) {
+    setSearch(value);
+    applyFilters(
+      selectedPlatforms,
+      selectedLanguages,
+      selectedTechnologies,
+      value
+    );
     setHasFiltered(true);
   }
 
   function applyFilters(
-    platformIds: string[],
-    languageIds: string[],
-    technologyIds: string[]
+    platformNames: string[],
+    languageNames: string[],
+    technologyNames: string[],
+    search: string
   ) {
     let result = [...projects];
 
-    if (platformIds.length > 0) {
+    if (platformNames.length > 0) {
       result = result.filter((project) =>
         project.fields.platforms?.some((platform) =>
-          platformIds.includes(platform.sys.id)
+          platformNames.includes(platform.fields.name)
         )
       );
     }
 
-    if (languageIds.length > 0) {
+    if (languageNames.length > 0) {
       result = result.filter((project) =>
         project.fields.languages?.some((language) =>
-          languageIds.includes(language.sys.id)
+          languageNames.includes(language.fields.name)
         )
       );
     }
 
-    if (technologyIds.length > 0) {
+    if (technologyNames.length > 0) {
       result = result.filter((project) =>
         project.fields.technologies?.some((technology) =>
-          technologyIds.includes(technology.sys.id)
+          technologyNames.includes(technology.fields.name)
         )
       );
     }
@@ -103,16 +116,18 @@ export default function WorkClient({
 
   return (
     <div className="flex flex-col max-w-7xl mx-auto w-full gap-4">
-      <h1 className="text-4xl font-bold">Work</h1>
-      <ProjectFilters
-        ref={filtersRef}
-        platforms={platforms}
-        languages={languages}
-        technologies={technologies}
-        platformChange={handlePlatformChange}
-        languageChange={handleLanguageChange}
-        technologyChange={handleTechnologyChange}
-      />
+      <div className="flex flex-col sm:flex-row justify-between gap-4">
+        <h1 className="text-4xl font-bold">Work</h1>
+        <ProjectFilters
+          ref={filtersRef}
+          platforms={platforms}
+          languages={languages}
+          technologies={technologies}
+          platformChange={handlePlatformChange}
+          languageChange={handleLanguageChange}
+          technologyChange={handleTechnologyChange}
+        />
+      </div>
       <LayoutGroup>
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
