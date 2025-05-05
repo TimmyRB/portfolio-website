@@ -7,21 +7,15 @@ import {
 import WorkClient from "./client";
 import { Metadata } from "next";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const projects = await getProjects();
-
-  return {
+export const metadata: Metadata = {
+  title: "Jacob Brasil - Work",
+  description: "A collection of projects I've worked on",
+  openGraph: {
     title: "Jacob Brasil - Work",
     description: "A collection of projects I've worked on",
-    openGraph: {
-      title: "Jacob Brasil - Work",
-      description: "A collection of projects I've worked on",
-      images: projects.map((project) => ({
-        url: `https://${project.fields.image.fields.file.url}`,
-      })),
-    },
-  };
-}
+    images: [{ url: "https://jacobbrasil.com/logo-bg.png" }],
+  },
+};
 
 export default async function WorkPage() {
   const platforms = await getPlatforms();

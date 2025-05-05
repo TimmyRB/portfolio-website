@@ -24,7 +24,7 @@ export async function generateMetadata({
 
   return {
     title: `Jacob Brasil - ${project.fields.title}`,
-    description: project.fields.description,
+    description: project.fields.overview,
     openGraph: {
       title: `Jacob Brasil - ${project.fields.title}`,
       description: project.fields.overview,
