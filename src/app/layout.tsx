@@ -14,7 +14,8 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://jacobbrasil.com"),
   openGraph: {
     title: "Jacob Brasil",
-    description: "Jacob Brasil's Portfolio",
+    description:
+      "Jacob Brasil's Portfolio Website featuring a collection of projects I've worked on",
     siteName: "Jacob Brasil",
     url: "https://jacobbrasil.com",
     type: "website",

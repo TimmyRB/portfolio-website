@@ -27,8 +27,8 @@ export async function generateMetadata({
     description: project.fields.description,
     openGraph: {
       title: `Jacob Brasil - ${project.fields.title}`,
-      description: project.fields.description,
-      images: [{ url: project.fields.image.fields.file.url }],
+      description: project.fields.overview,
+      images: [{ url: `https://${project.fields.image.fields.file.url}` }],
     },
   };
 }

@@ -12,12 +12,12 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     title: "Jacob Brasil - Work",
-    description: "Jacob Brasil's Work",
+    description: "A collection of projects I've worked on",
     openGraph: {
       title: "Jacob Brasil - Work",
-      description: "Jacob Brasil's Work",
+      description: "A collection of projects I've worked on",
       images: projects.map((project) => ({
-        url: project.fields.image.fields.file.url,
+        url: `https://${project.fields.image.fields.file.url}`,
       })),
     },
   };
