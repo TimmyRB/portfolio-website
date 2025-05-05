@@ -21,7 +21,7 @@ import {
 } from "@/components/ui/tooltip";
 import { LinkPreview } from "./ui/link-preview";
 import CSharpIcon from "./csharp-icon";
-
+import JavaIcon from "./java-icon";
 export default function LanguageIcon({
   language,
   size = 16,
@@ -75,6 +75,8 @@ function getLanguageIcon(language: string, size: number) {
       return <SiSwift size={size} />;
     case "c#":
       return <CSharpIcon width={size} height={size} />;
+    case "java":
+      return <JavaIcon width={size} height={size} />;
     default:
       return <Code2Icon size={size} />;
   }

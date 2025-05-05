@@ -112,7 +112,7 @@ const ProjectFilters = forwardRef<
             <ChevronsUpDown className="ml-auto h-4 w-4 opacity-50" />
           </Button>
         </PopoverTrigger>
-        <PopoverContent className="w-[200px] max-h-[250px] overflow-y-auto p-0">
+        <PopoverContent className="w-[200px] p-0">
           <Command>
             <CommandInput placeholder="Search platforms..." />
             <CommandList>
@@ -144,7 +144,7 @@ const ProjectFilters = forwardRef<
             <ChevronsUpDown className="ml-auto h-4 w-4 opacity-50" />
           </Button>
         </PopoverTrigger>
-        <PopoverContent className="w-[200px] max-h-[250px] overflow-y-auto p-0">
+        <PopoverContent className="w-[200px] p-0">
           <Command>
             <CommandInput placeholder="Search languages..." />
             <CommandList>
@@ -176,7 +176,7 @@ const ProjectFilters = forwardRef<
             <ChevronsUpDown className="ml-auto h-4 w-4 opacity-50" />
           </Button>
         </PopoverTrigger>
-        <PopoverContent className="w-[200px] max-h-[250px] overflow-y-auto p-0">
+        <PopoverContent className="w-[200px] p-0">
           <Command>
             <CommandInput placeholder="Search technologies..." />
             <CommandList>

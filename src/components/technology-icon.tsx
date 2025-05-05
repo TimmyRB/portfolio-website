@@ -17,6 +17,7 @@ import {
   SiCockroachlabs,
   SiAngular,
   SiPostgresql,
+  SiSvelte,
 } from "@icons-pack/react-simple-icons";
 import {
   Tooltip,
@@ -89,6 +90,8 @@ function getTechnologyIcon(technology: string, size: number) {
       return <SiAngular size={size} />;
     case "postgresql":
       return <SiPostgresql size={size} />;
+    case "svelte":
+      return <SiSvelte size={size} />;
     default:
       return <WrenchIcon size={size} />;
   }
