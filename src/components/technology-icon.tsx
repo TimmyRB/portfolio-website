@@ -13,6 +13,8 @@ import {
   SiNodedotjs,
   SiFirebase,
   SiMongodb,
+  SiExpress,
+  SiCockroachlabs,
 } from "@icons-pack/react-simple-icons";
 import {
   Tooltip,
@@ -77,6 +79,10 @@ function getTechnologyIcon(technology: string, size: number) {
       return <SiFirebase size={size} />;
     case "mongodb":
       return <SiMongodb size={size} />;
+    case "express":
+      return <SiExpress size={size} />;
+    case "cockroachdb":
+      return <SiCockroachlabs size={size} />;
     default:
       return <WrenchIcon size={size} />;
   }
