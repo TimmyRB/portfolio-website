@@ -7,10 +7,13 @@ import {
   Project,
   Technology,
 } from "@/lib/contentful-types";
+
 import ProjectCard from "@/components/project-card";
+
 import ProjectFilters, {
   ProjectFiltersRef,
 } from "@/components/project-filters";
+
 import { WobbleCard } from "@/components/ui/wobble-card";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence, LayoutGroup } from "motion/react";
@@ -34,42 +37,29 @@ export default function WorkClient({
   );
   const [hasFiltered, setHasFiltered] = useState(false);
   const filtersRef = useRef<ProjectFiltersRef>(null);
-  const [search, setSearch] = useState("");
 
   function handlePlatformChange(value: string[]) {
     setSelectedPlatforms(value);
-    applyFilters(value, selectedLanguages, selectedTechnologies, search);
+    applyFilters(value, selectedLanguages, selectedTechnologies);
     setHasFiltered(true);
   }
 
   function handleLanguageChange(value: string[]) {
     setSelectedLanguages(value);
-    applyFilters(selectedPlatforms, value, selectedTechnologies, search);
+    applyFilters(selectedPlatforms, value, selectedTechnologies);
     setHasFiltered(true);
   }
 
   function handleTechnologyChange(value: string[]) {
     setSelectedTechnologies(value);
-    applyFilters(selectedPlatforms, selectedLanguages, value, search);
-    setHasFiltered(true);
-  }
-
-  function handleSearchChange(value: string) {
-    setSearch(value);
-    applyFilters(
-      selectedPlatforms,
-      selectedLanguages,
-      selectedTechnologies,
-      value
-    );
+    applyFilters(selectedPlatforms, selectedLanguages, value);
     setHasFiltered(true);
   }
 
   function applyFilters(
     platformNames: string[],
     languageNames: string[],
-    technologyNames: string[],
-    search: string
+    technologyNames: string[]
   ) {
     let result = [...projects];
 
