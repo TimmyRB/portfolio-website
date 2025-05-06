@@ -211,7 +211,7 @@ export default function WorkClient({ project }: { project: Project }) {
   return (
     <div className="flex flex-col max-w-4xl mx-auto w-full gap-4 pb-16">
       <motion.div
-        className="w-full h-3/4 max-h-110 rounded-lg overflow-hidden bg-zinc-100 dark:bg-zinc-900 p-2"
+        className="relative w-full h-3/4 max-h-110 rounded-lg overflow-hidden bg-zinc-100 dark:bg-zinc-900 p-2"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}

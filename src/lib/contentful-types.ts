@@ -21,6 +21,14 @@ export interface ContentfulImage {
     }
 }
 
+export interface ContentfulFile {
+    fields: {
+        file: {
+            url: string;
+        }
+    }
+}
+
 export type ContentfulRichText = any;
 
 export interface ProjectFields {
@@ -57,8 +65,42 @@ export interface CollaboratorFields {
     link: string;
 }
 
+export interface ExperienceFields {
+    company: string;
+    title: string;
+    logo: ContentfulImage;
+    website: string;
+    location: string;
+    remote: boolean;
+    startDate: string;
+    endDate: string;
+    description: string;
+}
+
+export interface EducationFields {
+    name: string;
+    program: string;
+    logo: ContentfulImage;
+    website: string;
+    location: string;
+    description: string;
+}
+
+export interface AboutFields {
+    name: string;
+    image: ContentfulImage;
+    description: string;
+    work: Experience[];
+    education: Education[];
+    resume: ContentfulFile;
+}
+
 export type Project = ContentfulEntry<ProjectFields>;
 export type Language = ContentfulEntry<LanguageFields>;
 export type Technology = ContentfulEntry<TechnologyFields>;
 export type Platform = ContentfulEntry<PlatformFields>;
 export type Collaborator = ContentfulEntry<CollaboratorFields>;
+export type Experience = ContentfulEntry<ExperienceFields>;
+export type Education = ContentfulEntry<EducationFields>;
+export type About = ContentfulEntry<AboutFields>;
+
