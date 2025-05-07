@@ -20,10 +20,10 @@ export async function POST(req: Request) {
         });
 
         await transporter.sendMail({
-            from: `"${name}" <${email}>`,
+            from: `"Webmail" <webmail@jacobbrasil.com>`,
             to: "webmail@jacobbrasil.com",
             subject: `New message from ${name}`,
-            text: message,
+            text: `Name: ${name}\nEmail: ${email}\nMessage:\n\n${message}`,
         });
 
         await transporter.sendMail({
