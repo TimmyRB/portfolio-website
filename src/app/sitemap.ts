@@ -38,6 +38,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             changeFrequency: 'monthly',
             priority: 1,
         },
+        {
+            url: 'https://jacobbrasil.com/contact',
+            lastModified: new Date(),
+            changeFrequency: 'yearly',
+            priority: 1,
+        },
         ...workSitemap,
     ]
 }
