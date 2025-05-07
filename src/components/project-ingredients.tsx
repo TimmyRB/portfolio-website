@@ -125,7 +125,7 @@ export default function ProjectIngredients({ project }: { project: Project }) {
           <Separator />
 
           {/* Collaborators */}
-          <div className="flex flex-row justify-between items-center px-4">
+          <div className="flex flex-col px-4 gap-2">
             <h3 className="text-md text-zinc-500 dark:text-zinc-400 font-bold">
               Collaborators
             </h3>
