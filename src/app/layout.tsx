@@ -6,6 +6,7 @@ import { ThemeProvider } from "next-themes";
 import Footer from "@/components/footer";
 
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { Toaster } from "@/components/ui/sonner";
 
 export const metadata: Metadata = {
   title: "Jacob Brasil",
@@ -104,6 +105,7 @@ export default function RootLayout({
           <Navbar />
           <main className="flex flex-col flex-1 p-4">{children}</main>
           <Footer />
+          <Toaster />
         </ThemeProvider>
       </body>
       <GoogleAnalytics gaId="G-W9DDJJTE4L" />

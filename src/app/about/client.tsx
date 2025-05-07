@@ -1,12 +1,12 @@
 "use client";
 
 import { About } from "@/lib/contentful-types";
-import { Button } from "@/components/ui/button";
 import { DownloadIcon } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
+import { SlidingButton } from "@/components/sliding-button";
 
 export default function AboutClient({ about }: { about: About }) {
   return (
@@ -19,25 +19,17 @@ export default function AboutClient({ about }: { about: About }) {
       >
         <div className="flex flex-row justify-between items-center gap-4">
           <h1 className="text-2xl md:text-3xl font-bold">About me</h1>
-          <div className="relative group">
-            <Link
-              href={`https://${about.fields.resume.fields.file.url}`}
-              target="_blank"
-            >
-              <Button
-                variant="outline"
-                size="lg"
-                className="overflow-hidden cursor-pointer"
-              >
-                <span className="relative flex items-center w-full justify-center">
-                  <DownloadIcon className="absolute left-[-100%] transform -translate-x-full group-hover:translate-x-30 transition-transform duration-300 ease-in-out" />
-                  <span className="transform group-hover:translate-x-48 transition-transform duration-300 ease-in-out">
-                    Download CV
-                  </span>
-                </span>
-              </Button>
-            </Link>
-          </div>
+          <Link
+            href={`https://${about.fields.resume.fields.file.url}`}
+            target="_blank"
+          >
+            <SlidingButton
+              variant="outline"
+              size="lg"
+              text="Download CV"
+              icon={<DownloadIcon />}
+            />
+          </Link>
         </div>
 
         <p className="text-md md:text-lg text-justify text-zinc-700 dark:text-zinc-200">

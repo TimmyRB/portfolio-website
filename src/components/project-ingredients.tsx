@@ -20,11 +20,6 @@ export default function ProjectIngredients({ project }: { project: Project }) {
   const hasCollaborators: boolean =
     project.fields.collaborators && project.fields.collaborators.length > 0;
 
-  let gridCols: number = 0;
-  if (hasPlatforms) gridCols++;
-  if (hasLanguages) gridCols++;
-  if (hasTechnologies) gridCols++;
-
   return (
     <div className="flex flex-col gap-2 w-full bg-zinc-100 dark:bg-zinc-900 py-2 rounded-lg">
       <div className="flex flex-row justify-between items-center gap-2 px-4 w-full">
@@ -46,7 +41,7 @@ export default function ProjectIngredients({ project }: { project: Project }) {
 
       <Separator />
 
-      <div className={`grid grid-cols-2 md:grid-cols-${gridCols}`}>
+      <div className="grid grid-cols-2">
         {hasPlatforms && (
           <>
             {/* Platforms */}
@@ -70,7 +65,7 @@ export default function ProjectIngredients({ project }: { project: Project }) {
         {hasLanguages && (
           <>
             {/* Languages */}
-            <div className="flex flex-row gap-2 px-4">
+            <div className="flex flex-row gap-2">
               {hasPlatforms && <Separator orientation="vertical" />}
               <div className="flex flex-col justify-start">
                 <h3 className="text-md text-zinc-500 dark:text-zinc-400 font-bold">
@@ -94,30 +89,22 @@ export default function ProjectIngredients({ project }: { project: Project }) {
         {hasTechnologies && (
           <>
             {/* Technologies */}
-            <div className="flex flex-col col-span-2 md:col-span-1 md:flex-row gap-2">
+            <div className="flex flex-col col-span-2">
               {(hasLanguages || hasPlatforms) && (
-                <Separator orientation="vertical" className="hidden md:block" />
+                <Separator orientation="horizontal" className="my-2" />
               )}
-              <div className="flex flex-col">
-                {(hasLanguages || hasPlatforms) && (
-                  <Separator
-                    orientation="horizontal"
-                    className="block my-2 md:hidden"
+              <h3 className="text-md text-zinc-500 dark:text-zinc-400 font-bold px-4">
+                Technologies
+              </h3>
+              <div className="flex flex-row flex-wrap gap-x-2 px-4">
+                {project.fields.technologies.map((technology) => (
+                  <TechnologyIcon
+                    key={technology.sys.id}
+                    technology={technology.fields.name}
+                    link={technology.fields.link}
+                    showLabel
                   />
-                )}
-                <h3 className="text-md text-zinc-500 dark:text-zinc-400 font-bold px-4">
-                  Technologies
-                </h3>
-                <div className="flex flex-row flex-wrap gap-x-2 px-4">
-                  {project.fields.technologies.map((technology) => (
-                    <TechnologyIcon
-                      key={technology.sys.id}
-                      technology={technology.fields.name}
-                      link={technology.fields.link}
-                      showLabel
-                    />
-                  ))}
-                </div>
+                ))}
               </div>
             </div>
           </>

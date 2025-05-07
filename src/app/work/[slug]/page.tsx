@@ -23,10 +23,10 @@ export async function generateMetadata({
   const project = await getProject(slug);
 
   return {
-    title: `Jacob Brasil - ${project.fields.title}`,
+    title: `${project.fields.title} - Jacob Brasil`,
     description: project.fields.overview,
     openGraph: {
-      title: `Jacob Brasil - ${project.fields.title}`,
+      title: `${project.fields.title} - Jacob Brasil`,
       description: project.fields.overview,
       images: [{ url: `https://${project.fields.image.fields.file.url}` }],
     },

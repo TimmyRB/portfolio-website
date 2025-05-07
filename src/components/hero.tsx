@@ -7,6 +7,7 @@ import { Highlight } from "@/components/ui/hero-highlight";
 import Link from "next/link";
 import { Button } from "./ui/button";
 import { FolderCode, User } from "lucide-react";
+import { SlidingButton } from "./sliding-button";
 
 export function Hero() {
   const flipWords: string[] = [
@@ -49,36 +50,20 @@ export function Hero() {
       </motion.h1>
       <div className="flex items-center justify-center gap-4 mt-8">
         <Link href="/work">
-          <div className="relative group">
-            <Button
-              variant="default"
-              size="lg"
-              className="overflow-hidden cursor-pointer"
-            >
-              <span className="relative flex items-center w-full justify-center">
-                <FolderCode className="absolute left-[-100%] transform -translate-x-full group-hover:translate-x-33 transition-transform duration-300 ease-in-out" />
-                <span className="transform group-hover:translate-x-48 transition-transform duration-300 ease-in-out">
-                  View My Work
-                </span>
-              </span>
-            </Button>
-          </div>
+          <SlidingButton
+            variant="default"
+            size="lg"
+            text="View My Work"
+            icon={<FolderCode />}
+          />
         </Link>
         <Link href="/about">
-          <div className="relative group">
-            <Button
-              variant="outline"
-              size="lg"
-              className="overflow-hidden cursor-pointer"
-            >
-              <span className="relative flex items-center w-full justify-center">
-                <User className="absolute left-[-100%] transform -translate-x-full group-hover:translate-x-21.5 transition-transform duration-300 ease-in-out" />
-                <span className="transform group-hover:translate-x-24 transition-transform duration-300 ease-in-out">
-                  About Me
-                </span>
-              </span>
-            </Button>
-          </div>
+          <SlidingButton
+            variant="outline"
+            size="lg"
+            text="About Me"
+            icon={<User />}
+          />
         </Link>
       </div>
     </div>

@@ -3,10 +3,10 @@ import AboutClient from "./client";
 import { getAbout } from "./server";
 
 export const metadata: Metadata = {
-  title: "Jacob Brasil - About",
+  title: "About - Jacob Brasil",
   description: "About me including my work experiences and education",
   openGraph: {
-    title: "Jacob Brasil - About",
+    title: "About - Jacob Brasil",
     description: "About me including my work experiences and education",
     images: [{ url: "https://jacobbrasil.com/logo-bg.png" }],
   },
