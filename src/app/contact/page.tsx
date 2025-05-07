@@ -25,6 +25,21 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
 import { sendGAEvent } from "@next/third-parties/google";
 import { track } from "@vercel/analytics/react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact - Jacob Brasil",
+  description: "Contact me for any inquiries or to get in touch",
+  openGraph: {
+    title: "Contact - Jacob Brasil",
+    description: "Contact me for any inquiries or to get in touch",
+    images: [{ url: "https://jacobbrasil.com/logo-bg.png" }],
+    siteName: "Jacob Brasil",
+    url: "https://jacobbrasil.com/contact",
+    type: "website",
+    locale: "en_CA",
+  },
+};
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Your name is required" }),

@@ -24,9 +24,9 @@ export const metadata: Metadata = {
     description:
       "Jacob Brasil's Portfolio Website featuring a collection of projects I've worked on",
     siteName: "Jacob Brasil",
-    url: "https://jacobbrasil.com",
+    url: "https://jacobbrasil.com/",
     type: "website",
-    locale: "en_US",
+    locale: "en_CA",
     images: [{ url: "https://jacobbrasil.com/logo-bg.png" }],
   },
   icons: [
