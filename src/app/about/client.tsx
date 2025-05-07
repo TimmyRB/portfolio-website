@@ -1,12 +1,13 @@
 "use client";
 
 import { About } from "@/lib/contentful-types";
-import { DownloadIcon } from "lucide-react";
+import { DownloadIcon, ExternalLinkIcon } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 import { SlidingButton } from "@/components/sliding-button";
+import { LinkPreview } from "../../components/ui/link-preview";
 
 export default function AboutClient({ about }: { about: About }) {
   return (
@@ -77,9 +78,15 @@ export default function AboutClient({ about }: { about: About }) {
                     <h3 className="text-lg md:text-xl font-bold">
                       {experience.fields.title}
                     </h3>
-                    <h4 className="text-md md:text-lg font-semibold text-zinc-500 dark:text-zinc-400">
-                      {experience.fields.company}
-                    </h4>
+                    <LinkPreview
+                      url={experience.fields.website}
+                      className="max-w-fit"
+                    >
+                      <h4 className="flex flex-row items-center gap-2 text-md md:text-lg font-semibold text-zinc-500 dark:text-zinc-400">
+                        {experience.fields.company}
+                        <ExternalLinkIcon className="w-4 h-4" />
+                      </h4>
+                    </LinkPreview>
                   </div>
                   <p className="text-md md:text-lg text-zinc-700 dark:text-zinc-200 text-justify">
                     {experience.fields.description}
@@ -138,9 +145,15 @@ export default function AboutClient({ about }: { about: About }) {
                 </div>
                 <div className="flex flex-col gap-2 flex-1">
                   <div className="flex flex-col">
-                    <h3 className="text-lg md:text-xl font-bold">
-                      {education.fields.name}
-                    </h3>
+                    <LinkPreview
+                      url={education.fields.website}
+                      className="max-w-fit"
+                    >
+                      <h3 className="flex flex-row items-center gap-2 text-lg md:text-xl font-bold">
+                        {education.fields.name}
+                        <ExternalLinkIcon className="w-4 h-4" />
+                      </h3>
+                    </LinkPreview>
                     <h4 className="text-md md:text-lg font-semibold text-zinc-500 dark:text-zinc-400">
                       {education.fields.program}
                     </h4>
