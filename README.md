@@ -1,7 +1,5 @@
 # Portfolio Website
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/9aff4f6b-97ca-4a2b-a6eb-468965dc4843/deploy-status)](https://app.netlify.com/sites/jacobbrasil/deploys)
-
 A modern, responsive portfolio website built with Next.js, React, and Contentful CMS.
 
 ## Features
