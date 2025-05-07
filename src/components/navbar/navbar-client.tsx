@@ -108,7 +108,7 @@ export function NavbarClient({ projects }: { projects: Project[] }) {
                       key={project.sys.id}
                       title={project.fields.title}
                       href={`/work/${project.fields.slug}`}
-                      imageUrl={`https://${project.fields.image.fields.file.url}`}
+                      imageUrl={`https:${project.fields.image.fields.file.url}`}
                     >
                       {project.fields.overview}
                     </ListItem>
