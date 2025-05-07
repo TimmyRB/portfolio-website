@@ -89,11 +89,11 @@ export default function WorkClient({ project }: { project: Project }) {
   );
 
   const OrderedList = ({ children }: { children: React.ReactNode }) => (
-    <ol className="list-decimal list-inside">{children}</ol>
+    <ol className="list-decimal list-inside pl-6">{children}</ol>
   );
 
   const UnorderedList = ({ children }: { children: React.ReactNode }) => (
-    <ul className="list-disc list-inside">{children}</ul>
+    <ul className="list-disc list-inside pl-6">{children}</ul>
   );
 
   const Table = ({ children }: { children: React.ReactNode }) => (
