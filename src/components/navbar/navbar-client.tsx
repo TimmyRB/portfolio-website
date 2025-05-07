@@ -1,28 +1,40 @@
 "use client";
 
 import Image from "next/image";
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
 import { useTheme } from "next-themes";
-import { MenuIcon, MoonIcon, SunIcon, XIcon } from "lucide-react";
+import { FolderCode, MenuIcon, MoonIcon, SunIcon, XIcon } from "lucide-react";
 import {
   NavigationMenu,
   NavigationMenuList,
   NavigationMenuItem,
   NavigationMenuLink,
   navigationMenuTriggerStyle,
-} from "./ui/navigation-menu";
+  NavigationMenuTrigger,
+  NavigationMenuContent,
+} from "@/components/ui/navigation-menu";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
+import { Project } from "@/lib/contentful-types";
+import React from "react";
 
-export function Navbar() {
+export function NavbarClient({ projects }: { projects: Project[] }) {
   const router = useRouter();
   const { theme, setTheme } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
 
   // Close sidebar when route changes
   useEffect(() => {
+    if (theme === "system") {
+      setTheme(
+        window.matchMedia("(prefers-color-scheme: light)").matches
+          ? "light"
+          : "dark"
+      );
+    }
+
     const handleRouteChange = () => {
       setIsOpen(false);
     };
@@ -51,13 +63,23 @@ export function Navbar() {
     <header className="sticky top-0 z-50 bg-background">
       <div className="relative flex flex-row items-center justify-between w-full p-4">
         <a onClick={() => router.push("/")}>
-          <Image
-            src={theme === "dark" ? "/logo.png" : "/logo-bg.png"}
-            alt="logo"
-            width={48}
-            height={48}
-            className="rounded-lg w-9 h-9 md:w-12 md:h-12"
-          />
+          {theme === "light" ? (
+            <Image
+              src="/logo-bg.png"
+              alt="logo"
+              width={48}
+              height={48}
+              className="rounded-lg w-9 h-9 md:w-12 md:h-12"
+            />
+          ) : (
+            <Image
+              src="/logo.png"
+              alt="logo"
+              width={48}
+              height={48}
+              className="rounded-lg w-9 h-9 md:w-12 md:h-12"
+            />
+          )}
         </a>
 
         {/* Desktop Menu */}
@@ -73,13 +95,26 @@ export function Navbar() {
               </NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuLink
-                href="/work"
-                className={navigationMenuTriggerStyle()}
-                aria-label="Work"
-              >
-                Work
-              </NavigationMenuLink>
+              <NavigationMenuTrigger>
+                <Link href="/work">Work</Link>
+              </NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+                  <ListItem key="all" title="Work" href="/work">
+                    Browse all of my work
+                  </ListItem>
+                  {projects.map((project) => (
+                    <ListItem
+                      key={project.sys.id}
+                      title={project.fields.title}
+                      href={`/work/${project.fields.slug}`}
+                      imageUrl={`https://${project.fields.image.fields.file.url}`}
+                    >
+                      {project.fields.overview}
+                    </ListItem>
+                  ))}
+                </ul>
+              </NavigationMenuContent>
             </NavigationMenuItem>
             <NavigationMenuItem>
               <NavigationMenuLink
@@ -195,3 +230,45 @@ export function Navbar() {
     </header>
   );
 }
+
+const ListItem = React.forwardRef<
+  React.ComponentRef<"a">,
+  React.ComponentPropsWithoutRef<"a"> & { imageUrl?: string }
+>(({ className, title, children, imageUrl, ...props }, ref) => {
+  return (
+    <li>
+      <NavigationMenuLink asChild>
+        <a
+          ref={ref}
+          className={cn(
+            "flex flex-row select-none gap-2 rounded-md p-1 h-full w-full leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+            className
+          )}
+          {...props}
+        >
+          {imageUrl && (
+            <Image
+              src={imageUrl}
+              alt={title ?? ""}
+              width={128}
+              height={128}
+              className="rounded-md w-1/5 min-h-full object-cover"
+            />
+          )}
+          {!imageUrl && (
+            <div className="rounded-md w-1/5 min-h-full bg-muted flex items-center justify-center">
+              <FolderCode />
+            </div>
+          )}
+          <div className="flex flex-col gap-1">
+            <div className="text-sm font-medium leading-none">{title}</div>
+            <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
+              {children}
+            </p>
+          </div>
+        </a>
+      </NavigationMenuLink>
+    </li>
+  );
+});
+ListItem.displayName = "ListItem";
