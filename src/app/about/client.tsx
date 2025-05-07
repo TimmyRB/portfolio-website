@@ -40,56 +40,8 @@ export default function AboutClient({ about }: { about: About }) {
 
       <motion.div
         initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="flex flex-col gap-8 w-full"
-      >
-        <h3 className="text-xl md:text-2xl font-bold">Education</h3>
-        <div className="flex flex-col gap-8">
-          {about.fields.education.map((education) => (
-            <div key={education.sys.id} className="flex flex-row gap-4">
-              <div className="flex flex-col gap-2 items-center">
-                <div className="min-w-4 min-h-4 p-1 rounded-full flex items-center justify-center border border-black/30 dark:border-white/30">
-                  <div className="w-full h-full bg-black dark:bg-white rounded-full" />
-                </div>
-                <Separator orientation="vertical" />
-              </div>
-              <div className="flex flex-col md:flex-row gap-2 md:gap-4">
-                <div className="flex-shrink-0 w-fit h-fit rounded-lg overflow-hidden flex items-center justify-center bg-zinc-200 dark:bg-zinc-800 p-1 shadow-sm">
-                  <Image
-                    src={`https:${education.fields.logo.fields.file.url}`}
-                    alt={education.fields.name}
-                    width={64}
-                    height={64}
-                    className="w-full h-full object-contain rounded-sm"
-                  />
-                </div>
-                <div className="flex flex-col gap-2 flex-1">
-                  <div className="flex flex-col">
-                    <h3 className="text-lg md:text-xl font-bold">
-                      {education.fields.name}
-                    </h3>
-                    <h4 className="text-md md:text-lg font-semibold text-zinc-500 dark:text-zinc-400">
-                      {education.fields.program}
-                    </h4>
-                  </div>
-                  <p className="text-md md:text-lg text-zinc-700 dark:text-zinc-200 text-justify">
-                    {education.fields.description}
-                  </p>
-                  <span className="text-zinc-500 dark:text-zinc-400 text-sm">
-                    {education.fields.location}
-                  </span>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-        <Separator className="my-2" />
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
         transition={{ duration: 0.5 }}
         className="flex flex-col gap-8 w-full"
       >
@@ -152,6 +104,56 @@ export default function AboutClient({ about }: { about: About }) {
                 </div>
               </div>
             </motion.div>
+          ))}
+        </div>
+        <Separator className="my-2" />
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="flex flex-col gap-8 w-full"
+      >
+        <h3 className="text-xl md:text-2xl font-bold">Education</h3>
+        <div className="flex flex-col gap-8">
+          {about.fields.education.map((education) => (
+            <div key={education.sys.id} className="flex flex-row gap-4">
+              <div className="flex flex-col gap-2 items-center">
+                <div className="min-w-4 min-h-4 p-1 rounded-full flex items-center justify-center border border-black/30 dark:border-white/30">
+                  <div className="w-full h-full bg-black dark:bg-white rounded-full" />
+                </div>
+                <Separator orientation="vertical" />
+              </div>
+              <div className="flex flex-col md:flex-row gap-2 md:gap-4">
+                <div className="flex-shrink-0 w-fit h-fit rounded-lg overflow-hidden flex items-center justify-center bg-zinc-200 dark:bg-zinc-800 p-1 shadow-sm">
+                  <Image
+                    src={`https:${education.fields.logo.fields.file.url}`}
+                    alt={education.fields.name}
+                    width={64}
+                    height={64}
+                    className="w-full h-full object-contain rounded-sm"
+                  />
+                </div>
+                <div className="flex flex-col gap-2 flex-1">
+                  <div className="flex flex-col">
+                    <h3 className="text-lg md:text-xl font-bold">
+                      {education.fields.name}
+                    </h3>
+                    <h4 className="text-md md:text-lg font-semibold text-zinc-500 dark:text-zinc-400">
+                      {education.fields.program}
+                    </h4>
+                  </div>
+                  <p className="text-md md:text-lg text-zinc-700 dark:text-zinc-200 text-justify">
+                    {education.fields.description}
+                  </p>
+                  <span className="text-zinc-500 dark:text-zinc-400 text-sm">
+                    {education.fields.location}
+                  </span>
+                </div>
+              </div>
+            </div>
           ))}
         </div>
       </motion.div>
