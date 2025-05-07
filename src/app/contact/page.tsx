@@ -23,6 +23,8 @@ import { SlidingButton } from "../../components/sliding-button";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
+import { sendGAEvent } from "@next/third-parties/google";
+import { track } from "@vercel/analytics/react";
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Your name is required" }),
@@ -36,6 +38,18 @@ export default function Contact() {
   });
 
   const onSubmit = async (data: z.infer<typeof formSchema>) => {
+    sendGAEvent("contact_form_submitted", {
+      name: data.name,
+      email: data.email,
+      message: data.message,
+    });
+
+    track("contact_form_submitted", {
+      name: data.name,
+      email: data.email,
+      message: data.message,
+    });
+
     const toastId = toast.loading("Sending email...");
     try {
       const response = await fetch("/api/send-email", {
