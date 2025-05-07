@@ -8,6 +8,7 @@ import Footer from "@/components/footer";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Toaster } from "@/components/ui/sonner";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
   title: "Jacob Brasil",
@@ -102,15 +103,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="flex flex-col h-screen w-screen overflow-x-hidden overflow-y-auto">
-        <SpeedInsights />
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Navbar />
           <main className="flex flex-col flex-1 p-4">{children}</main>
           <Footer />
           <Toaster />
         </ThemeProvider>
+
+        <SpeedInsights />
+        <GoogleAnalytics gaId="G-W9DDJJTE4L" />
+        <Analytics />
       </body>
-      <GoogleAnalytics gaId="G-W9DDJJTE4L" />
     </html>
   );
 }
