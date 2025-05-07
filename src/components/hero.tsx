@@ -21,7 +21,7 @@ export function Hero() {
 
   return (
     <div className="flex flex-col items-center justify-center gap-8 min-h-full min-w-full">
-      <Highlight className="text-xl font-bold rounded-sm px-2 text-white dark:text-zinc-950">
+      <Highlight className="text-xl font-bold rounded-sm px-2 text-background">
         Jacob Brasil
       </Highlight>
       <motion.h1

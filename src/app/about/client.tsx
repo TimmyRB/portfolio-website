@@ -33,7 +33,7 @@ export default function AboutClient({ about }: { about: About }) {
           </Link>
         </div>
 
-        <p className="text-md md:text-lg text-justify text-zinc-700 dark:text-zinc-200">
+        <p className="text-md md:text-lg text-justify text-accent-foreground">
           {about.fields.description}
         </p>
         <Separator className="my-2" />
@@ -82,16 +82,16 @@ export default function AboutClient({ about }: { about: About }) {
                       url={experience.fields.website}
                       className="max-w-fit"
                     >
-                      <h4 className="flex flex-row items-center gap-2 text-md md:text-lg font-semibold text-zinc-500 dark:text-zinc-400">
+                      <h4 className="flex flex-row items-center gap-2 text-md md:text-lg font-semibold text-muted-foreground">
                         {experience.fields.company}
                         <ExternalLinkIcon className="w-4 h-4" />
                       </h4>
                     </LinkPreview>
                   </div>
-                  <p className="text-md md:text-lg text-zinc-700 dark:text-zinc-200 text-justify">
+                  <p className="text-md md:text-lg text-accent-foreground text-justify">
                     {experience.fields.description}
                   </p>
-                  <div className="flex flex-col md:flex-row justify-between items-start md:items-center text-zinc-500 dark:text-zinc-400 text-sm">
+                  <div className="flex flex-col md:flex-row justify-between items-start md:items-center text-muted-foreground text-sm">
                     <span>
                       {formatDate(experience.fields.startDate)} -{" "}
                       {experience.fields.endDate
@@ -154,14 +154,14 @@ export default function AboutClient({ about }: { about: About }) {
                         <ExternalLinkIcon className="w-4 h-4" />
                       </h3>
                     </LinkPreview>
-                    <h4 className="text-md md:text-lg font-semibold text-zinc-500 dark:text-zinc-400">
+                    <h4 className="text-md md:text-lg font-semibold text-muted-foreground">
                       {education.fields.program}
                     </h4>
                   </div>
-                  <p className="text-md md:text-lg text-zinc-700 dark:text-zinc-200 text-justify">
+                  <p className="text-md md:text-lg text-accent-foreground text-justify">
                     {education.fields.description}
                   </p>
-                  <span className="text-zinc-500 dark:text-zinc-400 text-sm">
+                  <span className="text-muted-foreground text-sm">
                     {education.fields.location}
                   </span>
                 </div>

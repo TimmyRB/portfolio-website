@@ -27,7 +27,7 @@ export default function ProjectIngredients({ project }: { project: Project }) {
           <h1 className="text-xl font-bold text-nowrap">
             {project.fields.title}
           </h1>
-          <h2 className="text-md text-zinc-500 dark:text-zinc-400 font-bold">
+          <h2 className="text-md text-muted-foreground font-bold">
             {project.fields.year}
           </h2>
         </div>
@@ -46,7 +46,7 @@ export default function ProjectIngredients({ project }: { project: Project }) {
           <>
             {/* Platforms */}
             <div className="flex flex-col px-4">
-              <h3 className="text-md text-zinc-500 dark:text-zinc-400 font-bold">
+              <h3 className="text-md text-muted-foreground font-bold">
                 Platforms
               </h3>
               <div className="flex flex-row flex-wrap gap-x-2">
@@ -68,7 +68,7 @@ export default function ProjectIngredients({ project }: { project: Project }) {
             <div className="flex flex-row gap-2">
               {hasPlatforms && <Separator orientation="vertical" />}
               <div className="flex flex-col justify-start">
-                <h3 className="text-md text-zinc-500 dark:text-zinc-400 font-bold">
+                <h3 className="text-md text-muted-foreground font-bold">
                   Languages
                 </h3>
                 <div className="flex flex-row flex-wrap gap-x-2">
@@ -93,7 +93,7 @@ export default function ProjectIngredients({ project }: { project: Project }) {
               {(hasLanguages || hasPlatforms) && (
                 <Separator orientation="horizontal" className="my-2" />
               )}
-              <h3 className="text-md text-zinc-500 dark:text-zinc-400 font-bold px-4">
+              <h3 className="text-md text-muted-foreground font-bold px-4">
                 Technologies
               </h3>
               <div className="flex flex-row flex-wrap gap-x-2 px-4">
@@ -114,7 +114,7 @@ export default function ProjectIngredients({ project }: { project: Project }) {
       <Separator />
 
       <div className="flex flex-col">
-        <h3 className="text-md text-zinc-500 dark:text-zinc-400 font-bold px-4">
+        <h3 className="text-md text-muted-foreground font-bold px-4">
           Overview
         </h3>
         <p className="px-4 text-sm">{project.fields.overview}</p>
@@ -126,7 +126,7 @@ export default function ProjectIngredients({ project }: { project: Project }) {
 
           {/* Collaborators */}
           <div className="flex flex-col px-4 gap-2">
-            <h3 className="text-md text-zinc-500 dark:text-zinc-400 font-bold">
+            <h3 className="text-md text-muted-foreground font-bold">
               Collaborators
             </h3>
             <div className="flex flex-row flex-wrap gap-x-2">

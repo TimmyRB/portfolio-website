@@ -7,7 +7,8 @@ import Image from "next/image";
 import ProjectIngredients from "@/components/project-ingredients";
 import { BLOCKS, INLINES, MARKS } from "@contentful/rich-text-types";
 import ProjectLink from "@/components/project-link";
-
+import { LinkPreview } from "@/components/ui/link-preview";
+import { ExternalLinkIcon } from "lucide-react";
 export default function WorkClient({ project }: { project: Project }) {
   const hasLinks = project.fields.links && project.fields.links.length > 0;
 
@@ -79,7 +80,7 @@ export default function WorkClient({ project }: { project: Project }) {
   );
 
   const Quote = ({ children }: { children: React.ReactNode }) => (
-    <blockquote className="text-zinc-500 dark:text-zinc-400 bg-zinc-100 dark:bg-zinc-900 p-2 rounded-sm">
+    <blockquote className="text-muted-foreground bg-muted p-2 rounded-sm">
       {children}
     </blockquote>
   );
@@ -123,14 +124,13 @@ export default function WorkClient({ project }: { project: Project }) {
     children: React.ReactNode;
     node: any;
   }) => (
-    <a
-      href={node.data.uri}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="text-blue-500 hover:text-blue-600"
+    <LinkPreview
+      url={node.data.uri}
+      className="inline-flex flex-row items-center gap-1 text-blue-600 dark:text-blue-500 hover:text-blue-700 dark:hover:text-blue-400"
     >
       {children}
-    </a>
+      <ExternalLinkIcon className="w-4 h-4" />
+    </LinkPreview>
   );
 
   const content = documentToReactComponents(project.fields.description, {
