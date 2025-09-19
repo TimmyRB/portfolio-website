@@ -63,7 +63,7 @@ export default function AboutClient({ about }: { about: About }) {
                 </div>
                 <Separator orientation="vertical" />
               </div>
-              <div className="flex flex-col md:flex-row gap-2 md:gap-4">
+              <div className="flex flex-col flex-grow md:flex-row gap-2 md:gap-4">
                 <div className="flex-shrink-0 w-fit h-fit rounded-lg overflow-hidden flex items-center justify-center bg-zinc-200 dark:bg-zinc-800 p-1 shadow-sm">
                   <Image
                     src={`https:${experience.fields.logo.fields.file.url}`}
@@ -88,9 +88,11 @@ export default function AboutClient({ about }: { about: About }) {
                       </h4>
                     </LinkPreview>
                   </div>
-                  <p className="text-md md:text-lg text-accent-foreground text-justify">
-                    {experience.fields.description}
-                  </p>
+                  {experience.fields.description && (
+                    <p className="text-md md:text-lg text-accent-foreground text-justify">
+                      {experience.fields.description}
+                    </p>
+                  )}
                   <div className="flex flex-col md:flex-row justify-between items-start md:items-center text-muted-foreground text-sm">
                     <span>
                       {formatDate(experience.fields.startDate)} -{" "}
